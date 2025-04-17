@@ -41,7 +41,7 @@
 <script setup>
 import { ref } from 'vue';
 
-import { buttonSwitherStore } from '@/assets/Store/buttonSwither';
+import { buttonSwitherStore } from '@/store/buttonSwither';
 
 
 const selectedKeys = ref(['1']);

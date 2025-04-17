@@ -1,7 +1,7 @@
 <template>
     <a-table :columns="columns" :data-source="data">
       <template #headerCell="{ column }">
-        <template v-if="column.key === 'departureTime'">
+        <template v-if="column.key === 'departure_time'">
           <span>
             <smile-outlined />
             Время вылета
@@ -10,29 +10,29 @@
       </template>
   
       <template #bodyCell="{ column, record }">
-        <template v-if="column.key === 'departureTime'">
+        <template v-if="column.key === 'departure_time'">
           <span>
-            {{ record.departureTime }}
+            {{ record.departure_time }}
           </span>
         </template>
-        <template v-if="column.key === 'typeShip'">
+        <template v-if="column.key === 'ship_type'">
           <span>
-            {{ record.typeShip }}
+            {{ record.ship_type }}
           </span>
         </template>
-        <template v-else-if="column.key === 'numberSeats'">
+        <template v-else-if="column.key === 'number_of_seats'">
           <span>
-            {{ record.numberSeats }}
+            {{ record.number_of_seats }}
           </span>
         </template>
-        <template v-else-if="column.key === 'cost'">
+        <template v-else-if="column.key === 'price'">
           <span>
-            {{ record.cost }} руб.
+            {{ record.price }} руб.
           </span>
         </template>
-        <template v-else-if="column.key === 'flightNumber'">
+        <template v-else-if="column.key === 'flight_id'">
           <a>
-            {{ record.flightNumber }}
+            {{ record.flight_id }}
           </a>
         </template>
       </template>
@@ -41,64 +41,40 @@
   <script setup>
   const columns = [
     {
-      departureTime: 'departureTime',
-      dataIndex: 'departureTime',
-      key: 'departureTime',
+      departure_time: 'departure_time',
+      dataIndex: 'departure_time',
+      key: 'departure_time',
     },
     {
       title: 'Время прибытия',
-      dataIndex: 'arrivalTime',
-      key: 'arrivalTime',
+      dataIndex: 'arrival_time',
+      key: 'arrival_time',
     },
     {
       title: 'Вид транспорта',
-      dataIndex: 'typeShip',
-      key: 'typeShip',
+      dataIndex: 'ship_type',
+      key: 'ship_type',
     },
     {
       title: 'Кол-во свободных мест',
-      dataIndex: 'numberSeats',
-      key: 'numberSeats',
+      dataIndex: 'number_of_seats',
+      key: 'number_of_seats',
     },
     
     {
       title: 'Стоимость полета',
-      dataIndex: 'cost',
-      key: 'cost',
+      dataIndex: 'price',
+      key: 'price',
     },
     {
       title: 'Номер рейса',
-      key: 'flightNumber',
+      key: 'flight_id',
     },
   ];
-  const data = [
-    {
-      key: '1',
-      departureTime: '12:00',
-      arrivalTime: '15:00',
-      typeShip: 'самолет',
-      numberSeats: '20',
-      cost: 12,
-      flightNumber: "12003"
-    },
-    {
-      key: '2',
-      departureTime: '12:00',
-      arrivalTime: '15:00',
-      typeShip: 'самолет',
-      numberSeats: '20',
-      cost: 12,
-      flightNumber: "12003"
-    },
-    {
-      key: '3',
-      departureTime: '12:00',
-      arrivalTime: '15:00',
-      typeShip: 'самолет',
-      numberSeats: '20',
-      cost: 12,
-      flightNumber: "12003"
-    },
-  ];
+
+  import { scheduleStore } from '@/store/scheduleStore/scheduleStore';
+import { computed, watch } from 'vue';
+
+const data = computed(()=> scheduleStore.dataTable)
 
   </script>

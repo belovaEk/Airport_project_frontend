@@ -2,22 +2,16 @@
   <div :style="{ padding: '24px', background: '#fff', }">
             <div class="search_container">
               <div>
-                <input class="search_input" type="text" placeholder="Откуда"> 
+                <input class="search_input" type="text" placeholder="Откуда"  v-model="fliteDirections.cityDeparture"> 
               </div>
               <div>
-                <input class="search_input" type="text" placeholder="Куда"> 
+                <input class="search_input" type="text" placeholder="Куда" v-model="fliteDirections.cityArrival"> 
               </div>
               <div>
-                <input class="search_input" type="date" placeholder="Когда"> 
+                <input class="search_input" type="date" placeholder="Когда"  v-model="fliteDirections.date"> 
               </div>
-              <!-- <div>
-                <select class="search_input" type="number" placeholder="Кол-во пассажиров">
-                  <option value="">Пассажир</option>
-                  <option value="">Взрослые</option>
-                  <option value="">Дети</option>
-                  </select> 
-              </div> -->
-              <button class="search_shedlule">Поиск</button>
+              
+              <button class="search_shedlule" @click="searchFlights()">Поиск</button>
             </div>
   </div>
   <div class="table_container">
@@ -28,6 +22,30 @@
 
 <script setup>
 import TableFlights from './TableFlights.vue';
+import { fetchGet } from '@/subFuncs';
+import { scheduleStore } from '@/store/scheduleStore/scheduleStore';
+
+const fliteDirections = {
+  cityDeparture: '',
+  cityArrival: '',
+  date: '',
+}
+
+async function searchFlights(){
+
+  const response = await fetchGet(`search_tickets?departure_airport=${fliteDirections.cityDeparture}&arrival_airport=${fliteDirections.cityArrival}&departure_date=${fliteDirections.date}`)
+
+   scheduleStore.dataTable = response.map(item => ({
+      departure_time: item.departure_time,
+      arrival_time: item.arrival_time,
+      ship_type: item.ship_type,
+      number_of_seats: item.number_of_seats,
+      price: item.price,
+      flight_id: item.flight_id,
+  }));
+}
+  
+
 </script>
 
 <style>

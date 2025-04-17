@@ -2,8 +2,8 @@ import { reactive } from 'vue'
 
 
 export const buttonSwitherStore = reactive({
-  tab: '',
-  ScheduleIsActive: false,
+  tab: 'Расписание',
+  ScheduleIsActive: true,
   BronIsActive: false,
   RefundIsActive: false,
 

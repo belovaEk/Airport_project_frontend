@@ -25,7 +25,7 @@ import Schedule from './Schedule.vue';
 import Bron from './Bron.vue';
 import Refund from './Refund.vue';
 
-import { buttonSwitherStore } from '@/assets/Store/buttonSwither';
+import { buttonSwitherStore } from '@/store/buttonSwither';
 </script>
   <style scoped>
   #components-layout-demo-side .logo {

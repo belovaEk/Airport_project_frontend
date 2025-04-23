@@ -6,7 +6,7 @@
       <a-form-item label="Причина">
       <a-select v-model:value="formState.reason">
         <a-select-option value="demo">Нашел другое предложение (другая компания)</a-select-option>
-        <a-select-option value="demo">Нашел дургое предложение (наша комапания)</a-select-option>
+        <a-select-option value="demo">Нашел другое предложение (наша комапания)</a-select-option>
         <a-select-option value="demo">Кончились деньги</a-select-option>
       </a-select>
     </a-form-item>

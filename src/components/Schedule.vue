@@ -1,5 +1,5 @@
 <template>
-  <div :style="{ padding: '24px', background: '#fff', }">
+  <div :style="{ padding: '24px', background: '#fff',}" class="header">
             <div class="search_container">
               <div>
                 <input class="search_input" type="text" placeholder="Откуда"  v-model="fliteDirections.cityDeparture"> 
@@ -52,6 +52,9 @@ async function searchFlights(){
 </script>
 
 <style>
+.header{
+  border-radius: 5px;
+}
 
 .table_container{
   margin-top: 25px;

@@ -69,7 +69,7 @@ const formState = reactive({
   patronymic: '',
   gender: '',
   passport: '',
-  flightNumber: '',
+  flightNumber: localStorage.flight_id,
   birthDate: '',
   phoneNumber: '',  
   seatNumber: '',

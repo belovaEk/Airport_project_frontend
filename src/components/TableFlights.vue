@@ -44,7 +44,7 @@
           </span>
         </template>
         <template v-else-if="column.key === 'flight_id'">
-          <a>
+          <a @click="switchBooking(record.flight_id)">
             {{ record.flight_id }}
           </a>
         </template>
@@ -52,6 +52,13 @@
     </a-table>
   </template>
   <script setup>
+  import { buttonSwitherStore } from '@/store/buttonSwither';
+
+  function switchBooking(flight_id){
+    buttonSwitherStore.BookingSwitch()
+    localStorage.setItem('flight_id', flight_id);
+  }
+
   const columns = [
   {
       title: 'Откуда',

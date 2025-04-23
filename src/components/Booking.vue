@@ -55,13 +55,7 @@ import { reactive, ref } from 'vue';
 import ModalBooking from './ModalBooking.vue';
 const options = ref([
   {
-    value: 'мест нет',
-  },
-  {
-    value: 'F1'
-  },
-  {
-    value: 'j1',
+    value: 'выберите рейс',
   },
 ]);
 
@@ -83,7 +77,7 @@ const formState = reactive({
 
 import { modalBookingStore } from '@/store/modalBookingStore';
 import { fetchPost } from '@/subFuncs';
-// import { fetchGet } from '@/subFuncs';
+import { fetchGet } from '@/subFuncs';
  
 const bookingId = ref(0)
 async function onSubmit() {
@@ -99,7 +93,7 @@ async function onSubmit() {
       passport: formState.passport,
       phone_number: formState.phoneNumber,
       flight_id: formState.flightNumber,
-      seat: 'F1'
+      seat: formState.seatNumber,
     });
     
     const data = await response.json();
@@ -110,8 +104,9 @@ async function onSubmit() {
   }
 }
 
-const checkSeats = (flightNumber) => {
-  // fetch запрос на доступные билеты
+async function checkSeats(flightNumber){
+  const response = await fetchGet(`ticket/${flightNumber}`)
+  options.value = response
 }
 const reset = () => {
   formState.surname = ''

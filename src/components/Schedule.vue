@@ -33,14 +33,17 @@ const fliteDirections = {
 
 async function searchFlights(){
 
-  const response = await fetchGet(`search_tickets?departure_airport=${fliteDirections.cityDeparture}&arrival_airport=${fliteDirections.cityArrival}&departure_date=${fliteDirections.date}`)
+  const response = await fetchGet(`search_flights?departure_airport=${fliteDirections.cityDeparture}&arrival_airport=${fliteDirections.cityArrival}&departure_date=${fliteDirections.date}`)
 
    scheduleStore.dataTable = response.map(item => ({
+    departure_airport: item.departure_airport,
+    arrival_airport: item.arrival_airport,
+    departure_date: item.departure_date,
+    arrival_date: item.arrival_date,
       departure_time: item.departure_time,
       arrival_time: item.arrival_time,
       ship_type: item.ship_type,
       number_of_seats: item.number_of_seats,
-      price: item.price,
       flight_id: item.flight_id,
   }));
 }

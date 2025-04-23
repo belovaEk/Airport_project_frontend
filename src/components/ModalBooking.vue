@@ -1,19 +1,19 @@
 <template>
     <div>
       <a-modal v-model:open="open" title="Номер брони:" @ok="handleOk">
-        <span>{{ props.bronId }}</span>
+        <span>{{ props.bookingId }}</span>
       </a-modal>
     </div>
   </template>
   <script setup>
   import { computed } from 'vue';
-  import { modalBronStore } from '@/store/modalBronStore';
-  const open = computed(()=> modalBronStore.isActive);
+  import { modalBookingStore } from '@/store/modalBookingStore';
+  const open = computed(()=> modalBookingStore.isActive);
 
   const props = defineProps({
-    bronId: Number,
+    bookingId: Number,
   })
   const handleOk = e => {
-    modalBronStore.isActive = false;
+    modalBookingStore.isActive = false;
   };
   </script>

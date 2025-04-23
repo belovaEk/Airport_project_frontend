@@ -4,19 +4,19 @@ import { reactive } from 'vue'
 export const buttonSwitherStore = reactive({
   tab: 'Расписание',
   ScheduleIsActive: true,
-  BronIsActive: false,
+  BookingIsActive: false,
   RefundIsActive: false,
 
   ScheduleSwitch() {
     this.ScheduleIsActive = true;
-    this.BronIsActive = false;
+    this.BookingIsActive = false;
     this.RefundIsActive = false;
 
     this.tab = 'Расписание';
   },
   
-  BronSwitch() {
-    this.BronIsActive = true;
+  BookingSwitch() {
+    this.BookingIsActive = true;
     this.ScheduleIsActive = false;
     this.RefundIsActive = false; 
     
@@ -25,7 +25,7 @@ export const buttonSwitherStore = reactive({
 
   RefundSwitch() {
     this.RefundIsActive = true;
-    this.BronIsActive = false;
+    this.BookingIsActive = false;
     this.ScheduleIsActive = false;
      
     this.tab = 'Возврат';

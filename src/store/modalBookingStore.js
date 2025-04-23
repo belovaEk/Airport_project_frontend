@@ -1,6 +1,6 @@
 import { reactive } from 'vue'
 
 
-export const modalBronStore = reactive({
+export const modalBookingStore = reactive({
     isActive: false,
 })

@@ -12,7 +12,7 @@
           </a-breadcrumb>
 
           <Schedule v-if="buttonSwitherStore.ScheduleIsActive"/>
-          <Bron v-if="buttonSwitherStore.BronIsActive"/>
+          <Booking v-if="buttonSwitherStore.BookingIsActive"/>
           <Refund v-if="buttonSwitherStore.RefundIsActive" />
         </a-layout-content>
       </a-layout>
@@ -22,7 +22,7 @@
 <script setup>
 import SideBar from './SideBar.vue';
 import Schedule from './Schedule.vue';
-import Bron from './Bron.vue';
+import Booking from './Booking.vue';
 import Refund from './Refund.vue';
 
 import { buttonSwitherStore } from '@/store/buttonSwither';

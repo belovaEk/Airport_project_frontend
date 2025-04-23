@@ -30,7 +30,7 @@
       <a-input class="input_number" v-model:value="formState.flightNumber" />
       <a-button class="btn_check_seats" type="primary" @click="checkSeats(formState.flightNumber)">Проверить</a-button>
     </a-form-item>
-    <a-form-item  label="Выбор места">
+    <a-form-item  label="Выбор места" :rules="[{ required: true, message: 'Укажите место' }]">
       <a-select
       v-model:value="formState.seatNumber"
       show-search
@@ -48,11 +48,11 @@
       <a-button @click="reset" style="margin-left: 10px">Отменить</a-button>
     </a-form-item>
   </a-form>
-  <ModalBron :bron-id="bookingId" />
+  <ModalBooking :bookingId="bookingId" />
 </template>
 <script setup>
 import { reactive, ref } from 'vue';
-import ModalBron from './ModalBron.vue';
+import ModalBooking from './ModalBooking.vue';
 const options = ref([
   {
     value: 'мест нет',
@@ -81,13 +81,13 @@ const formState = reactive({
   seatNumber: '',
 });
 
-import { modalBronStore } from '@/store/modalBronStore';
+import { modalBookingStore } from '@/store/modalBookingStore';
 import { fetchPost } from '@/subFuncs';
 // import { fetchGet } from '@/subFuncs';
  
 const bookingId = ref(0)
 async function onSubmit() {
-  modalBronStore.isActive = true;
+  modalBookingStore.isActive = true;
  
   try {
     const response = await fetchPost('booking', {

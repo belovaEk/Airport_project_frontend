@@ -15,9 +15,7 @@
                 <span>Билеты</span>
               </span>
             </template>
-            <a-menu-item key="3" @click="buttonSwitherStore.BronSwitch()">Бронирование</a-menu-item>
-            <!-- <a-menu-item key="4">Продажа</a-menu-item> -->
-            <!-- <a-menu-item key="5">Изменение</a-menu-item> -->
+            <a-menu-item key="3" @click="buttonSwitherStore.BookingSwitch()">Бронирование</a-menu-item>
             <a-menu-item key="6" @click="buttonSwitherStore.RefundSwitch()">Возврат</a-menu-item>
           </a-sub-menu>
           <a-sub-menu key="sub2">

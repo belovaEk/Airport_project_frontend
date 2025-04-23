@@ -28,10 +28,6 @@
             <a-menu-item key="8">Правила перевозки</a-menu-item>
             <a-menu-item key="10">Частые вопросы</a-menu-item>
           </a-sub-menu>
-          <a-menu-item key="11">
-            <file-outlined />
-            <span>File</span>
-          </a-menu-item>
         </a-menu>
       </a-layout-sider>  
 </template>

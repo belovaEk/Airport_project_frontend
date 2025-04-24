@@ -29,6 +29,7 @@
   });
   async function deleteBooking() {
       await fetchDelete(`bookings/${booking_id}`)
+      reset()
   };
 
   const reset = () => {

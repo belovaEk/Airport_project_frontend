@@ -22,7 +22,7 @@
   <script setup>
   import { reactive, toRaw } from 'vue';
   const formState = reactive({
-    bookingNumber: '',
+    bookingNumber: localStorage.booking_id,
     comment: '',
     reason: '',
   });

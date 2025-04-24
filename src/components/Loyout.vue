@@ -14,6 +14,7 @@
           <Schedule v-if="buttonSwitherStore.ScheduleIsActive"/>
           <Booking v-if="buttonSwitherStore.BookingIsActive"/>
           <Refund v-if="buttonSwitherStore.RefundIsActive" />
+          <SearchTicket v-if="buttonSwitherStore.SearchTicketIsActive"/>
         </a-layout-content>
       </a-layout>
     </a-layout>
@@ -24,6 +25,7 @@ import SideBar from './SideBar.vue';
 import Schedule from './Schedule.vue';
 import Booking from './Booking.vue';
 import Refund from './Refund.vue';
+import SearchTicket from './SearchTicket.vue';
 
 import { buttonSwitherStore } from '@/store/buttonSwither';
 </script>

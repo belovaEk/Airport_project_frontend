@@ -16,6 +16,7 @@
               </span>
             </template>
             <a-menu-item key="3" @click="buttonSwitherStore.BookingSwitch()">Бронирование</a-menu-item>
+            <a-menu-item key="7" @click="buttonSwitherStore.SearchTicketSwitch()">Поиск билетов</a-menu-item>
             <a-menu-item key="6" @click="buttonSwitherStore.RefundSwitch()">Возврат</a-menu-item>
           </a-sub-menu>
           <a-sub-menu key="sub2">

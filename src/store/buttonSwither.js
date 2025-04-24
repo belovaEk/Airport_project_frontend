@@ -1,3 +1,4 @@
+import SearchTicket from '@/components/SearchTicket.vue';
 import { reactive } from 'vue'
 
 
@@ -6,6 +7,7 @@ export const buttonSwitherStore = reactive({
   ScheduleIsActive: true,
   BookingIsActive: false,
   RefundIsActive: false,
+  SearchTicketIsActive: false,
 
   ScheduleSwitch() {
     this.ScheduleIsActive = true;
@@ -29,6 +31,15 @@ export const buttonSwitherStore = reactive({
     this.ScheduleIsActive = false;
      
     this.tab = 'Возврат';
+  },
+
+  SearchTicketSwitch() {
+    this.SearchTicketIsActive = true;
+    this.RefundIsActive = false;
+    this.BookingIsActive = false;
+    this.ScheduleIsActive = false;
+     
+    this.tab = 'Поиск билетов';
   },
 })
 

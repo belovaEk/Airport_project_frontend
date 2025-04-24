@@ -15,3 +15,13 @@ export async function fetchGet(url) {
     const response = await fetch(`${store.state.api}/${url}`);
     return await response.json();
 }
+
+export async function fetchDelete(url) {
+    let headers = {
+        'Content-Type': 'application/json'    
+    }
+    return await fetch(`${store.state.api}/${url}`, {
+        method: "DELETE",
+        headers: headers,
+    });
+}

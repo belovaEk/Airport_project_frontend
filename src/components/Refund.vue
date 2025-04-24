@@ -14,21 +14,21 @@
         <a-textarea v-model:value="formState.comment" />
       </a-form-item>
       <a-form-item :wrapper-col="{ span: 14, offset: 4 }">
-        <a-button type="primary" @click="onSubmit">Возврат</a-button>
+        <a-button type="primary" @click="deleteBooking">Возврат</a-button>
         <a-button style="margin-left: 10px" @click="reset">Отмена</a-button>
       </a-form-item>
     </a-form>
   </template>
   <script setup>
-  import { reactive, toRaw } from 'vue';
+  import { fetchDelete } from '@/subFuncs';
+  import { reactive } from 'vue';
   const formState = reactive({
     bookingNumber: localStorage.booking_id,
     comment: '',
     reason: '',
   });
-  const onSubmit = () => {
-    console.log('submit!', toRaw(formState));
-    reset()
+  async function deleteBooking() {
+      await fetchDelete(`bookings/${booking_id}`)
   };
 
   const reset = () => {

@@ -13,6 +13,7 @@ export const buttonSwitherStore = reactive({
     this.ScheduleIsActive = true;
     this.BookingIsActive = false;
     this.RefundIsActive = false;
+    this.SearchTicketIsActive = false;
 
     this.tab = 'Расписание';
   },
@@ -21,6 +22,7 @@ export const buttonSwitherStore = reactive({
     this.BookingIsActive = true;
     this.ScheduleIsActive = false;
     this.RefundIsActive = false; 
+    this.SearchTicketIsActive = false;
     
     this.tab = 'Бронирование';
   },
@@ -29,6 +31,7 @@ export const buttonSwitherStore = reactive({
     this.RefundIsActive = true;
     this.BookingIsActive = false;
     this.ScheduleIsActive = false;
+    this.SearchTicketIsActive = false;
      
     this.tab = 'Возврат';
   },
